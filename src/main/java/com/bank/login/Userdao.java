@@ -1,7 +1,6 @@
 package com.bank.login;
 
 import java.sql.*;
-import java.sql.Connection;
 import java.util.Scanner;
 
 public class Userdao {
@@ -58,30 +57,18 @@ String res = null;
     	return res;
     }
 
-    //update:
-public void updatedata(Usertable usertable) throws Exception {
-    Connection con = Connect.getConnection();
+  //pinchange:
+  	public int pinchange(String user,String pass) throws Exception{
+  		Connection con = Connect.getConnection();
 
-    String query = "update user1 set user_name = ? where id1 in ?";
-    PreparedStatement st = con.prepareStatement(query);
-    st.setString(1,usertable.getUser_name());
-    st.setLong(2, usertable.getId());
-    int res = st.executeUpdate();
-    System.out.println(res + " is affected!!");
-    st.close();
-    con.close();
-}
-//delete:
-    public void deletedata(Usertable usertable) throws Exception {
-        Connection con = Connect.getConnection();
-
-        String query = "delete from user1 where id1 in ?";
-        PreparedStatement st = con.prepareStatement(query);
-
-        st.setLong(1, usertable.getId());
-        int res = st.executeUpdate();
-        System.out.println(res + " is affected!!");
-        st.close();
-        con.close();
-    }
+  		String query = "update usernamepass set password = ? where username in ?";
+  		String query1 = "commit";
+  		PreparedStatement statement = con.prepareStatement(query);
+  		statement.setString(1, pass);
+  		statement.setString(2, user);
+  		int i = statement.executeUpdate();
+  		
+  		statement.executeUpdate(query1);
+  		return i;
+  	}
 }
