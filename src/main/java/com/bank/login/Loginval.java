@@ -46,13 +46,15 @@ public class Loginval extends HttpServlet {
 					flag = true;
 					session.setAttribute("user", uname);
 					response.sendRedirect("Welcomepage.jsp");
-				}else if(role.equals("agent")) {
-					userdao.insertdata(uname,role);
-					 System.out.println("this is agent!!");
-					flag = true;
-					session.setAttribute("agent", uname);
-					response.sendRedirect("Agent.jsp");
-				}else if(role.equals("admin")) {
+				}
+//					else if(role.equals("agent")) {
+//					userdao.insertdata(uname,role);
+//					 System.out.println("this is agent!!");
+//					flag = true;
+//					session.setAttribute("agent", uname);
+//					response.sendRedirect("Agent.jsp");
+//				}
+					else if(role.equals("admin")) {
 					userdao.insertdata(uname,role);
 					System.out.println("this is admin");
 					flag = true;

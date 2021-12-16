@@ -29,7 +29,7 @@ Scanner sc = new Scanner(System.in);
     public String getrole(String user,String pass) throws Exception{
 
 
-String res = null;
+String role = null;
         Connection con = Connect.getConnection();
 
         String query = "select * from usernamepass where username in ? and password in ?";
@@ -38,10 +38,10 @@ String res = null;
            st.setString(2, pass);
         ResultSet rs = st.executeQuery();
         while(rs.next()) {
-        	res = rs.getString(5);
+        	role = rs.getString(5);
         }
         
-        return res;
+        return role;
     }
     
     //get role:
@@ -57,7 +57,7 @@ String res = null;
     	return res;
     }
 
-  //pinchange:
+  //passchange:
   	public int pinchange(String user,String pass) throws Exception{
   		Connection con = Connect.getConnection();
 
@@ -71,4 +71,32 @@ String res = null;
   		statement.executeUpdate(query1);
   		return i;
   	}
+  	
+  	//insusernamepass:
+  public int insusernamepass(String username,String pass,String role) throws Exception {
+	  Connection con = Connect.getConnection();
+
+		String query = "insert into usernamepass(username,password,role) values(?,?,?)";
+		String query1 = "commit";
+		PreparedStatement statement = con.prepareStatement(query);
+		statement.setString(1, username);
+		statement.setString(2, pass);
+		statement.setString(3, role);
+		int i = statement.executeUpdate();
+		statement.executeUpdate(query1);
+		return i;
+  }
+  
+  //removeacc:
+  public int removeuser(String user) throws Exception{
+		Connection con = Connect.getConnection();
+
+		String query = "delete from usernamepass where username in ?";
+		String query1 = "commit";
+		PreparedStatement statement = con.prepareStatement(query);
+		statement.setString(1, user);
+		int i = statement.executeUpdate();
+		statement.executeUpdate(query1);
+		return i;
+	}
 }

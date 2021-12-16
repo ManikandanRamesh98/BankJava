@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>State Bank Of India</title>
 <link rel="stylesheet" href="welcomeuser.css">
 </head>
 <body bgcolor="blue">
@@ -18,11 +18,12 @@ if(session.getAttribute("user") == null){
  user = session.getAttribute("user").toString();
 }
 
+
 %>
 
 
 
-    <marquee id = "welmar" scrollamount = "20">State Bank Of India</marquee>
+    <marquee id = "welmar" scrollamount = "20">STATE BANK OF INDIA</marquee>
     <hr>
     <a href="Withdraw.jsp" id = "withdraw" class="atag">Withdraw</a>
     <a href="Deposit.jsp" id = "deposit" class="atag">Deposit</a>

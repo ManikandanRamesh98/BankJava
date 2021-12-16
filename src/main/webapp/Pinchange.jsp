@@ -7,11 +7,23 @@
 <title>Pin change</title>
 <style>
 #pinchangehead{
-
+font-size:50px;
+position : absolute;
+left : 500px;
+color : yellow;
+}
+legend{
+font-size:30px;
+}
+fieldset{
+position : absolute;
+top : 200px;
+width:300px;	
+left : 500px;
 }
 </style>
 </head>
-<body>
+<body bgcolor = "blue">
 <%!String user; %>
 
 <% 
@@ -23,10 +35,13 @@ if(session.getAttribute("user") == null){
 }
 %>
 <h1 id = "pinchangehead">Welcome <%=' ' + user %></h1>
+<fieldset>
+<legend>Generate New Pin</legend>
 <h1 id = "pinchangehead1">Enter The New Pin!!</h1>
 <form action = "pinchangeserv" method = "post">
 <input type = "text" name = "pininp" id = "pininpid">
 <input type = "submit">
 </form>
+</fieldset>
 </body>
 </html>

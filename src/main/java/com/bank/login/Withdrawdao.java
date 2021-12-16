@@ -34,4 +34,17 @@ return i;
 //		statement.executeUpdate(query1);
 //		return i;
 //		}
+	
+	//removeaccount
+	public int removewith(Long accno) throws Exception{
+		Connection con = Connect.getConnection();
+
+		String query = "delete from withdraw where user_acc_no in ?";
+		String query1 = "commit";
+		PreparedStatement statement = con.prepareStatement(query);
+		statement.setLong(1, accno);
+		int i = statement.executeUpdate();
+		statement.executeUpdate(query1);
+		return i;
+	}
 }

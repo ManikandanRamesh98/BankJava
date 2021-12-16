@@ -9,14 +9,15 @@
 #fieldreg{
 position:absolute;
 width:500px;
-top:190px;
+top:50px;
 border-color:blue;
-left:200px;
+left:400px;
 }
 input{
+width : 250px;
 height:30px;
 position:relative;
-margin-left:40px;
+margin-left:110px;
 }
 legend{
 font-size:30px;
@@ -31,10 +32,7 @@ left:150px;
 position:relative;
 left : 70px;
 }
-#cnfpassid{
-position:relative;
-left:-20px;
-}
+
 #reglab{
     font-size :20px;
     position: relative;
@@ -42,6 +40,9 @@ left:-20px;
     left:150px;
     color:blue;
     visibility: hidden;
+}
+label{
+font-size : 20px;
 }
 
 </style>
@@ -51,10 +52,11 @@ left:-20px;
 <legend>Register User</legend>
 
 <form action = "registersucc" method = "post" id = "regform" onsubmit = "return cnfpass()">
-<label>Enter Username : </label><input type = "text" name = "userreg" placeholder = "Abcd9" pattern = "[A-Z][a-zA-Z]{3,20}" title = "Start with A-Z and use A-Z or a-z or 0-9 minimum 3 character maximum 20 character" id = "userid" required><br><br><br>
-<label>Enter Password : </label><input type = "password" name = "passreg" placeholder = "abcd@89" pattern = "[A-Za-z0-9_@/!#$%^&*|\]{6,}" title = "minimum 6 character and special characters allowed" id = "passid" required><br><br><br>
-<label>Confirm Password : </label><input type = "password" name = "passreg" placeholder = "abcd@89" pattern = "[A-Za-z0-9_@/!#$%^&*|\]{6,}" title = "minimum 6 character and special characters allowed" id = "cnfpassid" required><br><br><br>
-<label>Role : </label><input type = "text" name = "rolereg"id = "rolereg" placeholder = "user,admin" pattern = "[a-z]{,5}" title = "use a-z for role" required><br><br><br>
+<label>Enter Username : </label><br><input type = "text" name = "userreg" placeholder = "Abcd9" pattern = "[A-Z][a-zA-Z]{3,20}" title = "Start with A-Z and use A-Z or a-z or 0-9 minimum 3 character maximum 20 character" id = "userid" required><br><br><br>
+<label>Enter Password : </label><br><input type = "password" name = "passreg" placeholder = "abcd@89" pattern = "[A-Za-z0-9!@#$%^&*_+=-~`/|\]{6,20}" minlength = "6" title = "minimum 6 character and special characters allowed" id = "passid" required><br><br><br>
+<label>Confirm Password : </label><br><input type = "password" name = "cnfpassreg" placeholder = "abcd@89" pattern = "[A-Za-z0-9!@#$%^&*_+=-~`/|\]{6,20}" minlength = "6" title = "minimum 6 character and special characters allowed" id = "cnfpassid" required><br><br><br>
+<label>Role : </label><br><input type = "text" name = "rolereg"id = "roleregid" placeholder = "user,admin" pattern = "[a-z]{4,5}" title = "use a-z for role" required><br><br><br>
+<label>Mob_no : </label><br><input type = "text" name = "mobnoreg" id = "mobnoregid" placeholder = "mobile number" pattern = "[6-9][0-9]{9}" title = "Enter 10 digit mobile number" required><br><br><br>
 <label id = "reglab" >Password Must Be Same</label>
 <button id = "regbt" type = "submit">Register</button>&ensp;&ensp;&ensp;&ensp;<button id = "resbt" type = "reset">Reset</button>
 </form>

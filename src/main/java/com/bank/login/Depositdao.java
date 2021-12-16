@@ -16,4 +16,17 @@ public class Depositdao {
 		statement.executeUpdate(query1);
 		return i;
 		}
+	
+	//remove acc:
+	public int removedep(Long accno) throws Exception{
+		Connection con = Connect.getConnection();
+
+		String query = "delete from deposit where user_acc_no in ?";
+		String query1 = "commit";
+		PreparedStatement statement = con.prepareStatement(query);
+		statement.setLong(1, accno);
+		int i = statement.executeUpdate();
+		statement.executeUpdate(query1);
+		return i;
+	}
 }

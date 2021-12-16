@@ -13,6 +13,13 @@
 td{
 color:yellow;
 }
+th {
+           
+            text-align:center;
+        }
+
+        
+      
 </style>
 </head>
 <body bgcolor = "blue">

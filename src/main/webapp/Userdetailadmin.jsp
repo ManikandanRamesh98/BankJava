@@ -1,7 +1,7 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="com.bank.login.Userprofiledao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.sql.ResultSet"%>
+<%@page import="com.bank.login.Userprofiledao"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +52,7 @@ while(rs.next()){
 %>
 <fieldset id = "userdetailfield">
 <legend>User Details</legend>
-<!--  <label>User Id : <%=" " +id %></label><br><br>-->
+ <label>User Id : <%=" " +id %></label><br><br>
 <label>UserName : <%=" " +uname %></label><br><br>
 <label>User Account No : <%=" " +accno %></label><br><br>
 <label>Balance : <%=" " +bal %></label><br><br>
